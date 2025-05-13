@@ -1,0 +1,332 @@
+/* Полный обновленный CSS для адаптивного сайта */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+/* Стили для шапки сайта */
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стили для навигации */
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ccc;
+}
+
+/* Стили для выпадающего меню выбора языка */
+.language-dropdown {
+    position: relative;
+    margin-left: 30px;
+}
+
+.language-btn {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.language-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 3px;
+    right: 0;
+}
+
+.language-content a {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #333;
+}
+
+.language-content a:last-child {
+    border-bottom: none;
+}
+
+.language-content a:hover {
+    background-color: #333;
+}
+
+.language-dropdown:hover .language-content {
+    display: block;
+}
+
+.language-btn:after {
+    content: "▼";
+    margin-left: 8px;
+    font-size: 10px;
+
+}
+
+
+
+/* Стили для мобильного меню-гамбургера */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+}
+
+/* Стили для героической секции */
+.hero-section {
+    background-image: url(/V80norq.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Минимальная высота вместо фиксированной */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрирование контента */
+    position: relative;
+    margin-top: 40px; /* Компенсация фиксированной шапки */
+    padding: 40px 20px; /* Добавляем вертикальные отступы */
+}
+
+
+.hero-content {
+    width: 100%;
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    padding: 30px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    animation: fadeIn 1.5s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для лучшей читаемости */
+    border-radius: 8px;
+}
+
+.hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Адаптивный размер шрифта */
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-text {
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Адаптивный размер шрифта */
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px); /* Адаптивные отступы */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid #fff;
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
+    animation-delay: 0.9s;
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Адаптивный размер шрифта */
+}
+
+.hero-button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Анимации для плавного появления */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для дополнительных секций */
+section {
+    padding: 60px 20px;
+    
+}
+
+section h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin-bottom: 30px;
+    text-align: center;
+    
+}
+
+/* Стили для футера */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        background-color: #000;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        z-index: 2;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .language-dropdown {
+        margin-right: 20px;
+    }
+    
+    .hero-content {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .hero-section {
+        background-position: center center;
+        align-items: center;
+        
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 20px 10px;
+        
+    }
+    
+    .hero-content {
+        padding: 15px;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .language-btn {
+        padding: 4px 8px;
+        font-size: 14px;
+        
+    }
+    
+    section {
+        padding: 40px 15px;
+    }
+}
+
+/* Для больших экранов */
+@media (min-width: 1200px) {
+    .hero-content {
+        max-width: 900px;
+        
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-text {
+        font-size: 1.3rem;
+    }
+}
+
+/* Для очень больших экранов */
+@media (min-width: 1600px) {
+    .hero-content {
+        max-width: 1000px;
+        
+    }
+}
